@@ -1,0 +1,48 @@
+	section	.text
+	global	mul_10k
+_mul_10k:
+	push 	ebx
+	push	ecx
+	push	edx
+	push	edi
+	push	esi
+
+	push	eax
+	shl	eax, 4
+	mov	ebx, eax
+	pop	eax
+
+	push	eax
+	shl	eax, 8
+	mov	ecx, eax
+	pop	eax
+
+	push	eax
+	shl	eax, 9
+	mov	edx, eax
+	pop	eax
+
+	push	eax
+	shl	eax, 10
+	mov	edi, eax
+	pop	eax
+
+	push	eax
+	shl	eax, 13
+	mov	esi, eax
+	pop	eax
+
+	mov	eax, 0
+	add	eax, ebx
+	add	eax, ecx
+	add	eax, edx
+	add	eax, edi
+	add	eax, esi
+
+	pop	esi
+	pop	edi
+	pop	edx
+	pop	ecx
+	pop	ebx
+
+	ret
